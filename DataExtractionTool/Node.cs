@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace DataExtractionTool
 {
     public class Node
     {
         public string Name { get; set; }
-        public CustomUri Url { get; set; }
+        public Uri Url { get; set; }
         public Node Parent { get; set; }
         public readonly IDictionary<string, Node> Children = new Dictionary<string, Node>();
         public bool IsPage { get { return Url != null; } }

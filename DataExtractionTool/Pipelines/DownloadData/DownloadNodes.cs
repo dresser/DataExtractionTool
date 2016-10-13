@@ -1,5 +1,6 @@
-﻿using System.Net;
+﻿using System;
 using System.IO;
+using System.Net;
 
 namespace DataExtractionTool.Pipelines.DownloadData
 {
@@ -51,7 +52,7 @@ namespace DataExtractionTool.Pipelines.DownloadData
             System.IO.File.WriteAllText(fileName, content);
         }
 
-        public string DownloadString(CustomUri url)
+        public string DownloadString(Uri url)
         {
             using (var client = new WebClient())
             {

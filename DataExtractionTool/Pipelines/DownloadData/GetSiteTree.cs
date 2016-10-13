@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using DataExtractionTool.Extensions;
 
 namespace DataExtractionTool.Pipelines.DownloadData
 {
@@ -8,7 +9,7 @@ namespace DataExtractionTool.Pipelines.DownloadData
         public override void Process(PipelineArgs args)
         {
             var downloadArgs = args as DownloadDataArgs;
-            var home = new Node { Name = "<Home>", Url = new CustomUri(downloadArgs.Urls.First().SchemeAndHost) };
+            var home = new Node { Name = "<Home>", Url = new Uri(downloadArgs.Urls.First().GetSchemeAndHost()) };
             foreach (var url in downloadArgs.Urls)
             {
                 AddPath(home, url);
@@ -26,7 +27,7 @@ namespace DataExtractionTool.Pipelines.DownloadData
             return nodeName;
         }
 
-        private void AddPath(Node current, CustomUri url)
+        private void AddPath(Node current, Uri url)
         {
             char[] charSeparators = new char[] { '/' };
 

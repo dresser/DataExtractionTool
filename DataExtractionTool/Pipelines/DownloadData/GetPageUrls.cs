@@ -5,6 +5,7 @@ using System.Linq;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.XPath;
+using DataExtractionTool.Extensions;
 
 namespace DataExtractionTool.Pipelines.DownloadData
 {
@@ -16,7 +17,7 @@ namespace DataExtractionTool.Pipelines.DownloadData
             downloadArgs.Urls = GetSitemapPageUrls(downloadArgs.SitemapUrl);
         }
 
-        private IEnumerable<CustomUri> GetSitemapPageUrls(Uri sitemapUrl)
+        private IEnumerable<Uri> GetSitemapPageUrls(Uri sitemapUrl)
         {
             var xdoc = XDocument.Load(sitemapUrl.AbsoluteUri);
 
@@ -24,9 +25,9 @@ namespace DataExtractionTool.Pipelines.DownloadData
             namespaceManager.AddNamespace("empty", "http://www.sitemaps.org/schemas/sitemap/0.9");
 
             var locs = xdoc.XPathSelectElements("empty:urlset/empty:url/empty:loc", namespaceManager);
-            var rootUrl = sitemapUrl.GetLeftPart(UriPartial.Authority);
+            var rootUrl = sitemapUrl.GetSchemeAndHost();
             return locs.OrderBy(u => u.Value)
-                    .Select(l => new CustomUri(l.Value))
+                    .Select(l => new Uri(l.Value))
                     .ToList();
         }
     }
