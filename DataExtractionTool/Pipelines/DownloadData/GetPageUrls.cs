@@ -14,7 +14,11 @@ namespace DataExtractionTool.Pipelines.DownloadData
         public override void Process(PipelineArgs args)
         {
             var downloadArgs = args as DownloadDataArgs;
-            downloadArgs.Urls = GetSitemapPageUrls(downloadArgs.SitemapUrl);
+            downloadArgs.WebPages = GetSitemapPageUrls(downloadArgs.SitemapUrl)
+                .Select(url => new WebPage
+                {
+                    Url = url
+                });
         }
 
         private IEnumerable<Uri> GetSitemapPageUrls(Uri sitemapUrl)

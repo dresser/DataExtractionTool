@@ -11,6 +11,10 @@ namespace DataExtractionTool.Pipelines.DownloadData
             {
                 Directory.CreateDirectory(downloadArgs.SiteFolder);
             }
+            if (!Directory.Exists(downloadArgs.MetaDataFolder))
+            {
+                Directory.CreateDirectory(downloadArgs.MetaDataFolder);
+            }
         }
     }
 }

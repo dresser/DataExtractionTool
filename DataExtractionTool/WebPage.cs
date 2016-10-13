@@ -3,7 +3,7 @@ using System;
 
 namespace DataExtractionTool
 {
-    public class Document
+    public class WebPage
     {
         public string Html { get; set; }
         public Uri Url { get; set; }

@@ -6,11 +6,12 @@
         {
             get
             {
-                return new PipelineProcessor[] {
+                return new PipelineProcessor[] 
+                {
                     new GetPageUrls(),
-                    new GetSiteTree(),
                     new CreateWorkingFolder(),
-                    new DownloadNodes()
+                    new DownloadWebPages(),
+                    new WriteMetaData()
                 };
             }
         }

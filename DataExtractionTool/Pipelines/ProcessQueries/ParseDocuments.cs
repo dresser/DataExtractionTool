@@ -1,6 +1,4 @@
 ﻿using AngleSharp.Parser.Html;
-using System;
-using System.Collections.Generic;
 
 namespace DataExtractionTool.Pipelines.ProcessQueries
 {
@@ -9,16 +7,16 @@ namespace DataExtractionTool.Pipelines.ProcessQueries
         public override void Process(PipelineArgs args)
         {
             var queryArgs = args as QueryArgs;
-
-            throw new NotImplementedException();
+            foreach(var page in queryArgs.WebPages)
+            {
+                ParseWebPage(page);
+            }
         }
 
-        private void ReadNode(Node node, IList<Document> documents)
+        public void ParseWebPage(WebPage webPage)
         {
             var parser = new HtmlParser();
-            documents.Add(new Document {
-                //HtmlDocument = parser.Parse(node.)
-            }); 
+            webPage.HtmlDocument = parser.Parse(webPage.Html);
         }
     }
 }
