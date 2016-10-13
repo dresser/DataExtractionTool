@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace DataExtractionTool.Pipelines.DownloadData
 {
-    public class PipelineArgs
+    public class DownloadDataArgs : PipelineArgs
     {
         public Uri SitemapUrl { get; set; }
         public IEnumerable<CustomUri> Urls { get; set; }

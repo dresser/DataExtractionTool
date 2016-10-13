@@ -8,11 +8,12 @@ using System.Xml.XPath;
 
 namespace DataExtractionTool.Pipelines.DownloadData
 {
-    public class GetPageUrls : ProcessorBase
+    public class GetPageUrls : PipelineProcessor
     {
         public override void Process(PipelineArgs args)
         {
-            args.Urls = GetSitemapPageUrls(args.SitemapUrl);
+            var downloadArgs = args as DownloadDataArgs;
+            downloadArgs.Urls = GetSitemapPageUrls(downloadArgs.SitemapUrl);
         }
 
         private IEnumerable<CustomUri> GetSitemapPageUrls(Uri sitemapUrl)

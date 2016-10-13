@@ -2,13 +2,14 @@
 
 namespace DataExtractionTool.Pipelines.DownloadData
 {
-    public class CreateWorkingFolder : ProcessorBase
+    public class CreateWorkingFolder : PipelineProcessor
     {
         public override void Process(PipelineArgs args)
         {
-            if (!Directory.Exists(args.SiteFolder))
+            var downloadArgs = args as DownloadDataArgs;
+            if (!Directory.Exists(downloadArgs.SiteFolder))
             {
-                Directory.CreateDirectory(args.SiteFolder);
+                Directory.CreateDirectory(downloadArgs.SiteFolder);
             }
         }
     }

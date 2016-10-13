@@ -3,16 +3,17 @@ using System.Linq;
 
 namespace DataExtractionTool.Pipelines.DownloadData
 {
-    public class GetSiteTree : ProcessorBase
+    public class GetSiteTree : PipelineProcessor
     {
         public override void Process(PipelineArgs args)
         {
-            var home = new Node { Name = "<Home>", Url = new CustomUri(args.Urls.First().SchemeAndHost) };
-            foreach (var url in args.Urls)
+            var downloadArgs = args as DownloadDataArgs;
+            var home = new Node { Name = "<Home>", Url = new CustomUri(downloadArgs.Urls.First().SchemeAndHost) };
+            foreach (var url in downloadArgs.Urls)
             {
                 AddPath(home, url);
             }
-            args.SiteTree = home;
+            downloadArgs.SiteTree = home;
         }
 
         private static string StripExtension(string nodeName)

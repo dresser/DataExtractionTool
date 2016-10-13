@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataExtractionTool.Pipelines.DownloadData;
+using System;
 
 namespace DataExtractionTool
 {
@@ -24,14 +25,14 @@ namespace DataExtractionTool
 
             var workingFolder = args[1];
             var siteFolder = workingFolder + @"\" + sitemapUri.Host;
-            var pipelineArgs = new Pipelines.DownloadData.PipelineArgs
+            var pipelineArgs = new DownloadDataArgs
             {
                 SitemapUrl = sitemapUri,
                 SiteFolder = siteFolder,
                 Overwrite = false
             };
 
-            var pipeline = new Pipelines.DownloadData.DownloadDataPipeline();
+            var pipeline = new DownloadDataPipeline();
             pipeline.Run(pipelineArgs);
         }
     }

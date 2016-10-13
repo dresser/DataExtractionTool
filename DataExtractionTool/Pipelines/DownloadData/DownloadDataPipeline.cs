@@ -1,20 +1,23 @@
 ﻿namespace DataExtractionTool.Pipelines.DownloadData
 {
-    public class DownloadDataPipeline
+    public class DownloadDataPipeline : Pipeline
     {
-        private ProcessorBase[] _pipelineProcessors = new ProcessorBase[] {
-            new GetPageUrls(),
-            new GetSiteTree(),
-            new CreateWorkingFolder(),
-            new DownloadNodes()
-        };
-
-        public void Run(PipelineArgs args)
+        protected override PipelineProcessor[] PipelineProcessors
         {
-            for (int i = 0; i < _pipelineProcessors.Length; i++)
+            get
             {
-                _pipelineProcessors[i].Process(args);
+                return new PipelineProcessor[] {
+                    new GetPageUrls(),
+                    new GetSiteTree(),
+                    new CreateWorkingFolder(),
+                    new DownloadNodes()
+                };
             }
+        }
+
+        public void Run(DownloadDataArgs args)
+        {
+            base.Run(args);
         }
     }
 }

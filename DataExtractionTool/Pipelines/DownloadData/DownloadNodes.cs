@@ -3,11 +3,12 @@ using System.IO;
 
 namespace DataExtractionTool.Pipelines.DownloadData
 {
-    public class DownloadNodes : ProcessorBase
+    public class DownloadNodes : PipelineProcessor
     {
         public override void Process(PipelineArgs args)
         {
-            DownloadNode(args.SiteFolder, args.SiteTree, args.Overwrite);
+            var downloadArgs = args as DownloadDataArgs;
+            DownloadNode(downloadArgs.SiteFolder, downloadArgs.SiteTree, downloadArgs.Overwrite);
         }
 
         public void DownloadNode(string rootPath, Node node, bool overwrite)
