@@ -8,7 +8,10 @@ namespace DataExtractionTool.Pipelines.ProcessQueries
         {
             get
             {
-                throw new NotImplementedException();
+                return new PipelineProcessor[]
+                {
+                    new ParseDocuments()
+                };
             }
         }
     }

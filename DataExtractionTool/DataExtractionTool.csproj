@@ -64,6 +64,7 @@
     <Compile Include="Pipelines\PipelineProcessor.cs" />
     <Compile Include="Pipelines\Pipeline.cs" />
     <Compile Include="Pipelines\PipelineArgs.cs" />
+    <Compile Include="Pipelines\ProcessQueries\ParseDocuments.cs" />
     <Compile Include="Pipelines\ProcessQueries\ProcessQueriesPipeline.cs" />
     <Compile Include="Pipelines\ProcessQueries\QueryArgs.cs" />
     <Compile Include="Program.cs" />
