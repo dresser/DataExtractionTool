@@ -10,7 +10,8 @@ namespace DataExtractionTool.Pipelines.ProcessQueries
             {
                 return new PipelineProcessor[]
                 {
-                    new ParseDocuments()
+                    new ParseDocuments(),
+                    new RunQueries()
                 };
             }
         }

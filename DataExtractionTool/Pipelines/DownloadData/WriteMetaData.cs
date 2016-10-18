@@ -9,7 +9,7 @@ namespace DataExtractionTool.Pipelines.DownloadData
         public override void Process(PipelineArgs args)
         {
             var downloadArgs = args as DownloadDataArgs;
-            var xmlDoc = BuildMetaDataDocument(downloadArgs.WebPages);
+            var xmlDoc = BuildMetaDataDocument(downloadArgs.WebPages.Where(wp => wp.FileName != null));
             xmlDoc.Save(downloadArgs.MetaDataFile);
         }
 

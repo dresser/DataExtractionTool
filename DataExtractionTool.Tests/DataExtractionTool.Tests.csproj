@@ -59,6 +59,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pipelines\DownloadData\DownloadDataPipelineTests.cs" />
+    <Compile Include="Pipelines\DownloadData\DownloadWebPagesTests.cs" />
     <Compile Include="Pipelines\DownloadData\WriteMetaDataTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

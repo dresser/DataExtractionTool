@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DataExtractionTool.Query
+﻿namespace DataExtractionTool.Query
 {
     public class QueryInfo
     {
+        public string XPath { get; set; }
+        public string ColumnName { get; set; }
     }
 }

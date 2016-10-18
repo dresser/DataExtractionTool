@@ -9,9 +9,9 @@ namespace DataExtractionTool.Pipelines.DownloadData
         public override void Process(PipelineArgs args)
         {
             var downloadArgs = args as DownloadDataArgs;
-            foreach (var page in downloadArgs.WebPages)
+            for (int i = 0; i < downloadArgs.WebPages.Count; i++)
             {
-                DownloadPage(downloadArgs, page);
+                DownloadPage(downloadArgs, downloadArgs.WebPages[i]);
             }
         }
 

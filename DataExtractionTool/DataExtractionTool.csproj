@@ -54,12 +54,12 @@
   <ItemGroup>
     <Compile Include="Pipelines\DownloadData\DownloadWebPages.cs" />
     <Compile Include="Pipelines\DownloadData\WriteMetaData.cs" />
+    <Compile Include="Pipelines\ProcessQueries\RunQueries.cs" />
     <Compile Include="WebPage.cs" />
     <Compile Include="Extensions\UriExtensions.cs" />
     <Compile Include="Pipelines\DownloadData\CreateWorkingFolder.cs" />
     <Compile Include="Pipelines\DownloadData\DownloadDataPipeline.cs" />
     <Compile Include="Pipelines\DownloadData\GetPageUrls.cs" />
-    <Compile Include="Pipelines\DownloadData\GetSiteTree.cs" />
     <Compile Include="Pipelines\DownloadData\DownloadDataArgs.cs" />
     <Compile Include="Pipelines\PipelineProcessor.cs" />
     <Compile Include="Pipelines\Pipeline.cs" />
