@@ -6,7 +6,7 @@ namespace DataExtractionTool.Pipelines.DownloadData
     {
         public override void Process(PipelineArgs args)
         {
-            var downloadArgs = args as DownloadDataArgs;
+            var downloadArgs = (DownloadDataArgs) args;
             if (!Directory.Exists(downloadArgs.SiteFolder))
             {
                 Directory.CreateDirectory(downloadArgs.SiteFolder);

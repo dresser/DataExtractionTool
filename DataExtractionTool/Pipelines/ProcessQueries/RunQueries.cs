@@ -4,11 +4,11 @@
     {
         public override void Process(PipelineArgs args)
         {
-            var queryArgs = args as QueryArgs;
-            foreach(var webPage in queryArgs.WebPages)
-            {
-                var element = webPage.HtmlDocument.QuerySelector(queryArgs.Query.XPath);
-            }
+            //var queryArgs = args as QueryArgs;
+            //foreach(var webPage in queryArgs.WebPages)
+            //{
+            //    var element = webPage.HtmlDocument.QuerySelector(queryArgs.Query.XPath);
+            //}
         }
     }
 }

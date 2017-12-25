@@ -2,19 +2,13 @@
 {
     public class DownloadDataPipeline : Pipeline
     {
-        protected override PipelineProcessor[] PipelineProcessors
+        protected override PipelineProcessor[] PipelineProcessors => new PipelineProcessor[]
         {
-            get
-            {
-                return new PipelineProcessor[] 
-                {
-                    new GetPageUrls(),
-                    new CreateWorkingFolder(),
-                    new DownloadWebPages(),
-                    new WriteMetaData()
-                };
-            }
-        }
+            new GetPageUrlsFromSitemap(),
+            new CreateWorkingFolder(),
+            new DownloadWebPages(),
+            new WriteMetaData()
+        };
 
         public void Run(DownloadDataArgs args)
         {

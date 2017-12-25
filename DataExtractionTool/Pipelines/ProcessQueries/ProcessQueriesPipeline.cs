@@ -4,16 +4,16 @@ namespace DataExtractionTool.Pipelines.ProcessQueries
 {
     public class ProcessQueriesPipeline : Pipeline
     {
-        protected override PipelineProcessor[] PipelineProcessors
+        protected override PipelineProcessor[] PipelineProcessors => new PipelineProcessor[]
         {
-            get
-            {
-                return new PipelineProcessor[]
-                {
-                    new ParseDocuments(),
-                    new RunQueries()
-                };
-            }
+            new ReadMetaData(),
+            new ParseDocuments(),
+            new RunQueries()
+        };
+
+        public void Run(QueryArgs args)
+        {
+            base.Run(args);
         }
     }
 }

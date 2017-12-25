@@ -9,13 +9,20 @@ namespace DataExtractionTool.Pipelines.ProcessQueries
             var queryArgs = args as QueryArgs;
             foreach(var page in queryArgs.WebPages)
             {
-                ParseWebPage(page);
+                ParseWebPage(args, page);
             }
         }
 
-        public void ParseWebPage(WebPage webPage)
+        public void ParseWebPage(PipelineArgs args, WebPage webPage)
         {
             var parser = new HtmlParser();
+            if (!System.IO.File.Exists(webPage.FileName))
+            {
+                args.Errors.Add($"File {webPage.FileName} not found.");
+                return;
+            }
+
+            webPage.Html = System.IO.File.ReadAllText(webPage.FileName);
             webPage.HtmlDocument = parser.Parse(webPage.Html);
         }
     }

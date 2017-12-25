@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DataExtractionTool</RootNamespace>
     <AssemblyName>DataExtractionTool</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -52,14 +53,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionBase.cs" />
+    <Compile Include="DownloadAction.cs" />
     <Compile Include="Pipelines\DownloadData\DownloadWebPages.cs" />
     <Compile Include="Pipelines\DownloadData\WriteMetaData.cs" />
+    <Compile Include="Pipelines\ProcessQueries\ReadMetaData.cs" />
     <Compile Include="Pipelines\ProcessQueries\RunQueries.cs" />
+    <Compile Include="ProcessAction.cs" />
     <Compile Include="WebPage.cs" />
     <Compile Include="Extensions\UriExtensions.cs" />
     <Compile Include="Pipelines\DownloadData\CreateWorkingFolder.cs" />
     <Compile Include="Pipelines\DownloadData\DownloadDataPipeline.cs" />
-    <Compile Include="Pipelines\DownloadData\GetPageUrls.cs" />
+    <Compile Include="Pipelines\DownloadData\GetPageUrlsFromSitemap.cs" />
     <Compile Include="Pipelines\DownloadData\DownloadDataArgs.cs" />
     <Compile Include="Pipelines\PipelineProcessor.cs" />
     <Compile Include="Pipelines\Pipeline.cs" />

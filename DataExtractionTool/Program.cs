@@ -1,5 +1,6 @@
 ﻿using DataExtractionTool.Pipelines.DownloadData;
 using System;
+using DataExtractionTool.Pipelines.ProcessQueries;
 
 namespace DataExtractionTool
 {
@@ -14,26 +15,47 @@ namespace DataExtractionTool
                 Console.Read();
                 return;
             }
-            var sitemapUriString = args[0];
-            Uri sitemapUri;
-            if(!Uri.TryCreate(sitemapUriString, UriKind.Absolute, out sitemapUri))
+
+            ActionBase action;
+            if (DownloadAction.ContainsCommandSwitch(args))
             {
-                Console.WriteLine("Invalid sitemap XML URL");
-                Console.Read();
-                return;
+                action = new DownloadAction(args);
+                var downloadAction = (DownloadAction) action;
+                if (action.Valid)
+                {
+                    var pipelineArgs = new DownloadDataArgs
+                    {
+                        SitemapUrl = downloadAction.SitemapUri,
+                        SiteFolder = downloadAction.SiteFolder,
+                        Overwrite = false
+                    };
+
+                    var pipeline = new DownloadDataPipeline();
+                    pipeline.Run(pipelineArgs);
+                    pipelineArgs.Errors.ForEach(e => Console.WriteLine(e));
+                }
+                action.Errors.ForEach(e => Console.WriteLine(e));
             }
 
-            var workingFolder = args[1];
-            var siteFolder = workingFolder + @"\" + sitemapUri.Host;
-            var pipelineArgs = new DownloadDataArgs
+            if (ProcessAction.ContainsCommandSwitch(args))
             {
-                SitemapUrl = sitemapUri,
-                SiteFolder = siteFolder,
-                Overwrite = false
-            };
+                action = new ProcessAction(args);
+                var processAction = (ProcessAction) action;
+                if (action.Valid)
+                {
+                    var processQueriesArgs = new QueryArgs
+                    {
+                        MetaDataFile = processAction.MetaDataFile
+                    };
 
-            var pipeline = new DownloadDataPipeline();
-            pipeline.Run(pipelineArgs);
+                    var pipeline = new ProcessQueriesPipeline();
+                    pipeline.Run(processQueriesArgs);
+                    processQueriesArgs.Errors.ForEach(e => Console.WriteLine(e));
+                }
+                action.Errors.ForEach(e => Console.WriteLine(e));
+            }
+
+            Console.ReadKey();
         }
     }
 }
