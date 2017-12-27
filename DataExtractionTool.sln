@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataExtractionTool", "DataExtractionTool\DataExtractionTool.csproj", "{C36F09A1-C891-42D0-AC2F-3ACCDB80B208}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataExtractionTool", "src\DataExtractionTool\DataExtractionTool.csproj", "{C36F09A1-C891-42D0-AC2F-3ACCDB80B208}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataExtractionTool.Tests", "DataExtractionTool.Tests\DataExtractionTool.Tests.csproj", "{0E84E3D6-143F-4995-AEC0-258777E60F63}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataExtractionTool.Tests", "src\DataExtractionTool.Tests\DataExtractionTool.Tests.csproj", "{0E84E3D6-143F-4995-AEC0-258777E60F63}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +24,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8BD40432-C25E-410B-9D7D-D33AEE3BFC14}
 	EndGlobalSection
 EndGlobal
