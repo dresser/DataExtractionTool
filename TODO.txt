@@ -1,0 +1,13 @@
+Data Extraction Tool
+
+Load all pages HTML into AngleSharp documents
+
+Identify elements common to all/most pages e.g. header, footer
+Identify distinct components which are re-used throughout the site
+Identify distinct content which is re-used throughout the site
+
+Look at individual pages and identify distinct components (think about using bootstrap / foundation css vocabularies)
+Get all css class names
+Get all element Ids
+
+1234oeps!!!!

@@ -1,7 +1,8 @@
-﻿using DataExtractionTool.Pipelines.DownloadData;
-using System;
+﻿using System;
 using Xunit;
 using System.Xml.XPath;
+using DataExtractionTool.Core;
+using DataExtractionTool.Core.Pipelines.DownloadData;
 
 namespace DataExtractionTool.Tests.Pipelines.DownloadData
 {
